@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+The front-end: Destroying (deleting) articles
+
+REST - Representational state transfer - mapping HTTP verbs (get, post, put/patch, delete) to CRUD actions
+
+resources provides REST-ful routes to Rails resources
