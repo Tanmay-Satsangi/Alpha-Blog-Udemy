@@ -1,0 +1,13 @@
+<!-- This file is created by the udemy tutorials as a recommendation. -->
+
+<% if @article.errors.any? %>
+  <h2> The following errors prevented the article from being saved </h2>
+
+  <ul>
+  <% @article.errors.full_messages.each do |msg| %>
+      <% puts msg%>
+      <li><%= msg %></li>
+  <% end %>
+  </ul>
+
+<% end %>

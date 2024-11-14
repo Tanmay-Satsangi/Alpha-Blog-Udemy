@@ -18,9 +18,8 @@
   </head>
 
   <body>
-  <% flash.each do |name, msg| %>
-    <%= msg %>
-  <% end %>
+  <!-- The partial render is different in layout folder as compared to other folder i.e. In layout, if we render the partial which is in same folder then at time we have to create the complete path but it is not necessary in other folder. --> 
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </body>
 </html>
