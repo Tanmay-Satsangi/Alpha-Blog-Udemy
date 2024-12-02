@@ -3,6 +3,10 @@
 <p><strong>Title: </strong> <%= @article.title %> </p>
 <p><strong>Description: </strong> <%= @article.description%> </p>
 
+by <%= @article.user.username if @article.user %>
+
+<%= link_to gravator_for(@article.user), user_path(@article.user) %>
+
 <! -- Pipe(|) is used only for separation between edit and delete on front end -->
 <%= link_to 'Edit', edit_article_path(@article) %> | 
 <%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> |
