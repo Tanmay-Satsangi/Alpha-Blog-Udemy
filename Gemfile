@@ -60,3 +60,6 @@ gem 'pry'
 gem "cssbundling-rails", "~> 1.4"
 
 gem "jsbundling-rails", "~> 1.3"
+
+# For pagination
+gem 'will_paginate', '~> 4.0'

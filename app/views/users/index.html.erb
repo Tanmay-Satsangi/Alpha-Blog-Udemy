@@ -1,4 +1,7 @@
 <h1 class="text-center mt-4"> Alpha Bloggers </h1>
+
+<%= will_paginate @users %>
+
   <% @users.each do |user| %>
       <%= link_to gravator_for(user, size: 150), user %> 
 
