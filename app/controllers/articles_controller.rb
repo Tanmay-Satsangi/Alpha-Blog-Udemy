@@ -16,6 +16,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    # Commented out below CORRECTED CODE because I am not able to pass the user_id fromt the front end.
+    # For now, I am hardcoding the user_id to the first user's ID whenever a new article is created.
+    # @article.user_id = current_user
+
     #Temporary hardcode the user-id so, we can create the articles from front end.
     @article.user_id = User.first.id
     
