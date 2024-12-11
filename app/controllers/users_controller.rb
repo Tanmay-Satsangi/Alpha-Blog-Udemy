@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, except: [:show, :index]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show 
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
@@ -37,6 +37,14 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render 'edit'
+    end
+
+    def destroy
+      @user.destroy
+      #if you delete the user directly then the session_user_id is set to user who has been deleted. So, to solve this issue you have to set the session_user_id to nil.
+      session[:user_id] = nil
+      flash[:notice] = "Account and all associated articles successfully deleted."
+      redirect_to articles_path
     end
   end
 
