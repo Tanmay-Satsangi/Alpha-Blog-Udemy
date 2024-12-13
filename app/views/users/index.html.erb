@@ -1,0 +1,18 @@
+<h1 class="text-center mt-4"> Alpha Bloggers </h1>
+
+<%= will_paginate @users %>
+
+  <% @users.each do |user| %>
+      <%= link_to gravator_for(user, size: 150), user %> 
+
+      <%= user.username%>
+      <! -- here user means user show page user_path(user) --> 
+
+      <! --If the user have one article it says 1 article and if the  user have more than 1 (1 article) then it automatically append 's' after article i.e 5 articles -->  
+      <%= pluralize(user.articles.count, "article") %>
+
+      <%= link_to 'Show', user%>
+      <%= link_to 'Edit', edit_user_path(user)%>
+      Joined <%= time_ago_in_words(user.created_at) %> ago
+      <br>
+  <% end %>

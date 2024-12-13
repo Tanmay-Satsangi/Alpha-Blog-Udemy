@@ -1,0 +1,20 @@
+<h1 class="text-center mt-4"> <%= @user.username %>'s </h1>
+
+<! -- # here is @articles because the instance varible in @articles. Check this: @articles = @user.articles.paginate(page: params[:page], per_page: 5)
+--> 
+<%= will_paginate @articles %>
+
+<! -- #Call the gravator_for method --> 
+<%= gravator_for @user, size: 200%>  
+
+<div class="text-center mt-4">
+<%= link_to "Edit your profile", edit_user_path(@user) %>
+
+
+<h3 class="text-center mt-4"> Articles's </h3>
+
+<%= render 'articles/article' %>
+
+
+
+
