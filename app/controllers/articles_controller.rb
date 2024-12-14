@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
 
   # Only the creator of an article can edit, update, or delete it.
   def require_same_user
-    if current_user != @article.user
+    if (@current_user != @user || !@current_user.admin?)
       flash[:alert] = "You can edit or delete your own articles."
       redirect_to @article
     end
